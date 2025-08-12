@@ -83,6 +83,49 @@ fruit[1,2]
 fruit[1,]
 fruit[2,1] <- "pineapple"
 
+#select multiple elements
+x<- 1:10
+x[c(1,3,5)]
+x[c(1,1,1)]
+x[c(1.2, 7.2, 5.4)]
+
+#exclude elements
+x[-10]
+x[-c(2,4,6,8,10)]
+x[c(-1, 2)] #don't work
+
+x[c(TRUE, FALSE,TRUE, FALSE,TRUE, FALSE,TRUE, FALSE,TRUE, FALSE)]
+
+x[x>3]
+x[0]
+
+# subsetting and assining multiple values
+x<- 1:5
+x[c(1,2)] <- 2:3
+x[-1]<- 4:1 "yellow"
+
+# subset rows in data frames based on conditions (logistical subsetting)
+
+mtcars[mtcars$gear == 5, ]
+
+mtcars[mtcars$gear == 5 & mtcars$cyl == 4, ]
+
+subset(mtcars, gear == 5)
+subset(mtcars, gear == 5 & cyl == 4)
+
+#remove columns
+df <- data.frame(x=1:3,
+                 y= 3:1,
+                 z= c("a", "b", "c"))
+df$z<- NULL
+
+df <- data.frame(x=1:3,
+                 y= 3:1,
+                 z= c("a", "b", "c"))
+
+df <- df[c("x", "y")]
+
+df[setdiff(names(df), "z")]
 
 
 
